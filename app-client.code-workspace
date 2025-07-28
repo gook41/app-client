@@ -1,0 +1,23 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "github.copilot.chat.welcomeMessage": "안녕! app-client 프로젝트에 오신 걸 환영해요. 사용자 설정을 로드하고 있어요...",
+    "github.copilot.chat.sessionContext": [
+      ".github/userProperties.md",
+      ".github/chatmodes/instruction.md", 
+      ".github/chatmodes/-.md",
+      "README.md",
+      "package.json"
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "github.copilot",
+      "github.copilot-chat"
+    ]
+  }
+}
