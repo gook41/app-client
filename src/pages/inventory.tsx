@@ -1,6 +1,7 @@
 // src/pages/inventory.tsx
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { mockApiResponse } from '../utils/mockData';
 
 // 재고 아이템 타입 정의
 interface InventoryItem {
@@ -40,6 +41,18 @@ export default function Inventory() {
     try {
       setLoading(true);
       setError('');
+
+      // Mock 데이터 모드 (개발용)
+      const useMockData = process.env.NODE_ENV === 'development' && !process.env.NEXT_PUBLIC_API_URL;
+      
+      if (useMockData) {
+        // Mock 데이터 사용 (백엔드 연결 없이 테스트)
+        setTimeout(() => {
+          setItems(mockApiResponse.data || []);
+          setLoading(false);
+        }, 1000); // 1초 지연으로 로딩 상태 시뮬레이션
+        return;
+      }
 
       const response = await fetch('http://localhost:8080/api/inventory', {
         method: 'GET',
