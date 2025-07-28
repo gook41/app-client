@@ -90,7 +90,9 @@ export default function Dashboard() {
           <div style={{ fontSize: '48px', marginBottom: '10px' }}>📦</div>
           <h3>재고 관리</h3>
           <p>전체 재고 조회, 등록, 수정, 삭제</p>
-          <button style={{
+          <button 
+            onClick={() => router.push('/inventory')}
+            style={{
             padding: '10px 20px',
             backgroundColor: '#4CAF50',
             color: 'white',
