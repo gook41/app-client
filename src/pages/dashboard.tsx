@@ -115,7 +115,9 @@ export default function Dashboard() {
           <div style={{ fontSize: '48px', marginBottom: '10px' }}>📥</div>
           <h3>입고 관리</h3>
           <p>입고 주문 생성, 처리, 상태 관리</p>
-          <button style={{
+          <button 
+            onClick={() => router.push('/inbound')}
+            style={{
             padding: '10px 20px',
             backgroundColor: '#2196F3',
             color: 'white',
@@ -138,7 +140,9 @@ export default function Dashboard() {
           <div style={{ fontSize: '48px', marginBottom: '10px' }}>📤</div>
           <h3>출고 관리</h3>
           <p>출고 주문 생성, 처리, 상태 관리</p>
-          <button style={{
+          <button 
+            onClick={() => router.push('/outbound')}
+            style={{
             padding: '10px 20px',
             backgroundColor: '#FF9800',
             color: 'white',
