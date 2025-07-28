@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import OAuthButton from '../components/auth/OAuthButton';
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -225,6 +226,33 @@ export default function Signup() {
             {loading ? '회원가입 중...' : '회원가입'}
           </button>
         </form>
+
+        {/* 구분선 */}
+        <div style={{ 
+          textAlign: 'center', 
+          margin: '20px 0',
+          position: 'relative'
+        }}>
+          <hr style={{ border: '1px solid #eee' }} />
+          <span style={{
+            position: 'absolute',
+            top: '-10px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            backgroundColor: 'white',
+            padding: '0 10px',
+            color: '#666'
+          }}>
+            또는
+          </span>
+        </div>
+
+        {/* OAuth 회원가입 버튼들 */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <OAuthButton provider="google" buttonText="Google로 회원가입" />
+          <OAuthButton provider="naver" buttonText="네이버로 회원가입" />
+          <OAuthButton provider="kakao" buttonText="카카오로 회원가입" />
+        </div>
 
         {/* 로그인 링크 */}
         <div style={{ textAlign: 'center', marginTop: '20px' }}>

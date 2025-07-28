@@ -264,6 +264,21 @@ export default function Inventory() {
               </div>
               <div style={{ textAlign: 'center' }}>
                 <button
+                  onClick={() => router.push(`/inventory/detail/${item.id}`)}
+                  style={{
+                    padding: '6px 12px',
+                    backgroundColor: '#007bff',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    fontSize: '12px',
+                    marginRight: '8px'
+                  }}
+                >
+                  👁️ 상세
+                </button>
+                <button
                   onClick={() => router.push(`/inventory/edit/${item.id}`)}
                   style={{
                     padding: '6px 12px',

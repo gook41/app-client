@@ -256,6 +256,20 @@ export default function Outbound() {
         </div>
         <div>
           <button
+            onClick={() => router.push('/outbound/add')}
+            style={{
+              padding: '10px 20px',
+              backgroundColor: '#FF9800',
+              color: 'white',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: 'pointer',
+              marginRight: '10px'
+            }}
+          >
+            📤 출고 주문 생성
+          </button>
+          <button
             onClick={() => router.push('/dashboard')}
             style={{
               padding: '10px 20px',
@@ -374,10 +388,25 @@ export default function Outbound() {
                     padding: '6px 12px',
                     borderRadius: '16px',
                     fontSize: '14px',
-                    fontWeight: 'bold'
+                    fontWeight: 'bold',
+                    marginRight: '10px'
                   }}>
                     {getStatusText(order.status)}
                   </span>
+                  <button
+                    onClick={() => router.push(`/outbound/detail/${order.id}`)}
+                    style={{
+                      padding: '6px 12px',
+                      backgroundColor: '#007bff',
+                      color: 'white',
+                      border: 'none',
+                      borderRadius: '4px',
+                      cursor: 'pointer',
+                      fontSize: '12px'
+                    }}
+                  >
+                    👁️ 상세
+                  </button>
                   <div style={{ marginTop: '5px', fontSize: '14px', color: '#666' }}>
                     요청일: {new Date(order.requestedDate).toLocaleDateString()}
                   </div>

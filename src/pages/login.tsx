@@ -1,6 +1,7 @@
 // src/pages/login.tsx
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import OAuthButton from '../components/auth/OAuthButton';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -135,6 +136,33 @@ export default function Login() {
             {loading ? '로그인 중...' : '로그인'}
           </button>
         </form>
+
+        {/* 구분선 */}
+        <div style={{ 
+          textAlign: 'center', 
+          margin: '20px 0',
+          position: 'relative'
+        }}>
+          <hr style={{ border: '1px solid #eee' }} />
+          <span style={{
+            position: 'absolute',
+            top: '-10px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            backgroundColor: 'white',
+            padding: '0 10px',
+            color: '#666'
+          }}>
+            또는
+          </span>
+        </div>
+
+        {/* OAuth 로그인 버튼들 */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <OAuthButton provider="google" />
+          <OAuthButton provider="naver" />
+          <OAuthButton provider="kakao" />
+        </div>
 
         {/* 회원가입 링크 */}
         <div style={{ textAlign: 'center', marginTop: '20px' }}>

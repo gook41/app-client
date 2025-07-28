@@ -243,6 +243,20 @@ export default function Inbound() {
             ← 대시보드
           </button>
           <button
+            onClick={() => router.push('/inbound/add')}
+            style={{
+              padding: '10px 20px',
+              backgroundColor: '#007bff',
+              color: 'white',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: 'pointer',
+              marginRight: '10px'
+            }}
+          >
+            ➕ 입고 주문 생성
+          </button>
+          <button
             onClick={fetchInboundOrders}
             style={{
               padding: '10px 20px',
@@ -344,10 +358,25 @@ export default function Inbound() {
                     padding: '6px 12px',
                     borderRadius: '16px',
                     fontSize: '14px',
-                    fontWeight: 'bold'
+                    fontWeight: 'bold',
+                    marginRight: '10px'
                   }}>
                     {getStatusText(order.status)}
                   </span>
+                  <button
+                    onClick={() => router.push(`/inbound/detail/${order.id}`)}
+                    style={{
+                      padding: '6px 12px',
+                      backgroundColor: '#007bff',
+                      color: 'white',
+                      border: 'none',
+                      borderRadius: '4px',
+                      cursor: 'pointer',
+                      fontSize: '12px'
+                    }}
+                  >
+                    👁️ 상세
+                  </button>
                   <div style={{ marginTop: '5px', fontSize: '14px', color: '#666' }}>
                     예정일: {new Date(order.expectedDate).toLocaleDateString()}
                   </div>
