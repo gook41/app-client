@@ -165,7 +165,9 @@ export default function Dashboard() {
           <div style={{ fontSize: '48px', marginBottom: '10px' }}>📝</div>
           <h3>로그 조회</h3>
           <p>시스템 감사 로그 및 필터링</p>
-          <button style={{
+          <button 
+            onClick={() => router.push('/logs')}
+            style={{
             padding: '10px 20px',
             backgroundColor: '#9C27B0',
             color: 'white',
