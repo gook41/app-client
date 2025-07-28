@@ -131,6 +131,20 @@ export default function Inventory() {
             ← 대시보드
           </button>
           <button
+            onClick={() => router.push('/inventory/add')}
+            style={{
+              padding: '10px 20px',
+              backgroundColor: '#007bff',
+              color: 'white',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: 'pointer',
+              marginRight: '10px'
+            }}
+          >
+            ➕ 재고 등록
+          </button>
+          <button
             onClick={fetchInventory}
             style={{
               padding: '10px 20px',
@@ -182,7 +196,7 @@ export default function Inventory() {
           {/* 테이블 헤더 */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: '1fr 120px 100px 100px 150px 120px',
+            gridTemplateColumns: '1fr 120px 100px 100px 150px 120px 100px',
             gap: '10px',
             padding: '15px 20px',
             backgroundColor: '#e9ecef',
@@ -195,6 +209,7 @@ export default function Inventory() {
             <div>상태</div>
             <div>위치</div>
             <div>등록일</div>
+            <div>관리</div>
           </div>
 
           {/* 테이블 내용 */}
@@ -203,7 +218,7 @@ export default function Inventory() {
               key={item.id}
               style={{
                 display: 'grid',
-                gridTemplateColumns: '1fr 120px 100px 100px 150px 120px',
+                gridTemplateColumns: '1fr 120px 100px 100px 150px 120px 100px',
                 gap: '10px',
                 padding: '15px 20px',
                 borderBottom: '1px solid #eee',
@@ -246,6 +261,22 @@ export default function Inventory() {
               <div>{item.location}</div>
               <div style={{ fontSize: '14px', color: '#666' }}>
                 {new Date(item.createdAt).toLocaleDateString()}
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <button
+                  onClick={() => router.push(`/inventory/edit/${item.id}`)}
+                  style={{
+                    padding: '6px 12px',
+                    backgroundColor: '#ffc107',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    fontSize: '12px'
+                  }}
+                >
+                  ✏️ 수정
+                </button>
               </div>
             </div>
           ))}
